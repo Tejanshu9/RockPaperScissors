@@ -13,7 +13,7 @@ A simple interactive Rock-Paper-Scissors game implemented using HTML, CSS, and J
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run Locally
 
 1. Clone or download the repository to your local machine.  
 2. Make sure the HTML, CSS, and JavaScript files are in the same folder.  
@@ -25,13 +25,19 @@ A simple interactive Rock-Paper-Scissors game implemented using HTML, CSS, and J
 
 ---
 
+## 🌐 Live Demo
+
+The game is deployed and available online.  
+The link to play directly is provided in the **About** section of this repository.  
+Just click and play—no setup needed!
+
+---
+
 ## Gameplay
 
 - You choose your move by clicking one of the three buttons.  
 - The computer randomly selects its move.  
 - The winner of each round is displayed along with updated scores.  
 - Once a player hits 5 points, the game announces the overall winner and disables further input.  
-
----
 
 
