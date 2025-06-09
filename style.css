@@ -1,0 +1,57 @@
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    color: cyan;
+    margin-top: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+button {
+    width: 150px;
+    padding: 12px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #1f1f1f;
+    color: white;
+    border: 2px solid cyan;
+    border-radius: 8px;
+    cursor: pointer;
+  
+}
+
+button:hover {
+    background-color: cyan;
+    color: black;
+}
+
+#play-again {
+    margin-top: 20px;
+}
+
+pre#results, pre#winner {
+    background-color: #111;
+    color: lime;
+    padding: 20px;
+    width: 60%;
+    min-height: 100px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
