@@ -9,9 +9,22 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function getHumanChoice() {
-    return prompt("Enter rock, paper, or scissors").toLowerCase();
+
+function disableButtons() {
+    document.querySelectorAll('.header button').forEach(btn => {
+        btn.disabled = true;
+    });
 }
+
+
+function enableButtons() {
+    document.querySelectorAll('.header button').forEach(btn => {
+        btn.disabled = false;
+    });
+}
+
+
+
 
 function playRound(humanchoice, computerchoice) {
 
@@ -19,7 +32,16 @@ function playRound(humanchoice, computerchoice) {
       let computerselection = computerchoice;
 
       let winner = getRoundWinner(humanselection, computerselection);
-      console.log("Winner of this round is: " + winner +"\n" + "Player's Choice: "+ humanselection +"\tComputer's Choice: " + computerselection);
+      const results = document.querySelector('#results').textContent =
+      `Winner of this round is: ${winner}
+       Player's Choice: ${humanselection}
+       Computer's Choice: ${computerselection}
+       Player's Score: ${humanScore}
+       Computer's Score: ${computerScore}`;
+
+      if(humanScore >= 5 || computerScore >=5){
+        selectWinner();
+      }
     }
 
 function getRoundWinner(human, computer) {
@@ -40,22 +62,42 @@ function getRoundWinner(human, computer) {
     }
 }
 function selectWinner() {
+    const winner = document.querySelector('#winner');
+
     if(humanScore > computerScore) {
-        return "Player";
+        winner.textContent = "Game Over!!!  Winner:  Player";
     } else if(computerScore > humanScore) {
-        return "Computer";
+        winner.textContent = "Game Over!!!  Winner: Computer";
     } else {
-        return "Nobody.....Since match is tied";
+        winner.textContent = "Game Over!!!  Draw"
     }
+    disableButtons();
 }
 
-
 function gameController() {
-    for(let i = 1;i <= 5;i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-    console.log("Player's Score: " + humanScore + "\nComputer's Score: " + computerScore);
-    console.log("Winner of this game: " + selectWinner());
+    const results = document.querySelector('#results');
+
+    document.querySelector('#rock').addEventListener('click',() => {
+         playRound("rock", getComputerChoice());
+    })
+
+    document.querySelector('#paper').addEventListener('click',() => {
+         playRound("paper", getComputerChoice());
+    })
+
+    document.querySelector('#scissors').addEventListener('click',() => {
+         playRound("scissors", getComputerChoice());
+    })
 } 
 
+
+document.querySelector('#play-again').addEventListener('click', () => {
+    humanScore = 0;
+    computerScore = 0;
+    document.querySelector('#results').textContent = "";
+    document.querySelector('#winner').textContent = "";
+    enableButtons();
+});
 gameController();
+
+      
